@@ -1,0 +1,207 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+ <link href="{% static 'css/rules.css' %}" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <!--navbar-->
+  
+<div class="container-fluid px-0">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" style="font-size: 30px;" href="#"> <img src="{% static 'logo.jpeg' %}" alt="img" width="30px" height="30px"> <h1 >Gpg Placement</h1></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/home">Home</a>
+          </li> 
+         
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/rules">Rules</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Login/Register
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="/student">Login As Student</a></li>
+              <li><a class="dropdown-item" href="/companylogin">Login As Employer</a></li>
+              <li><a class="dropdown-item" href="/tpologin">Login As TPO</a></li>
+            </ul>
+          </li>
+
+
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+
+
+
+
+
+
+<!--Rules-->
+
+<div class="rule">
+    <span>Rules & Regulations </span>
+</div>    
+    <div class="inner">
+    <h5>Rules &amp; Regulations to be followed by all students during campus placement</h5>
+    <ol type="A">
+        <li><b>
+            Dress code: </b>
+            <ol type="I">
+                <li>Students need to follow the VGEC dress code: Light Blue shirt and Navy-Blue trousers (For both boys &amp; girls). Students should wear only formal shoes.</li>
+            </ol>
+        </li></br>
+        <li> <b>
+            Students should carry following documents along with them: </b>
+            <ol type="I">
+                <li>Latest resume</li>
+                <li>All original certificates and one attested copy of each of them</li>
+                <li>Two passport size photographs</li>
+                <li>Envelopes and stationary</li>
+            </ol>
+        </li>
+    </br>
+        <li><b>
+            Regarding Portal and approvals: </b>
+            <ol type="I">
+                <li>It is made mandatory for the students to upload their latest result on the placement portal <a href="#">
+                </a>. False entry in the data by the students will lead to disqualification in placement drive even if he has paid the fees.</li>
+                <li>Departmental coordinator for placement activity will verify within week of declaration of results, the entries updated by the student and will approve that entry. Only the approved students will qualify for placement.</li>
+            </ol>
+        </li>
+    </br> 
+        <li> <b>
+            Regarding Placement Updates: </b>
+            <ol type="I">
+                <li>
+                    Students should be in regular contact with their T &amp; P representatives.
+                </li>
+                <li>
+                    Student should regularly check notice boards in their respective departments and placement website <a href="#"></a> for any further information regarding T&amp;P activities throughout the placement season.
+                </li>
+                <li>
+                    Students should regularly check their respective emails, SMS and WhatsApp for any updates regarding T &amp; P and should respond as and when required.
+                </li>
+            </ol>
+        </li>
+    </br>
+        <li> <b>
+            Regarding Placement Process: </b>
+            <ol type="I">
+                <li>
+                    Students should report 30minutes prior to the start of placement activity on the designated day.
+                </li>
+                <li>
+                    Student should regularly check notice boards in their respective departments and placement website<a href="#">  </a> for any further information regarding T&amp;P activities throughout the placement season.
+                </li>
+                <li>
+                    Students should enter their latest correct data on placement website <a href="#"> </a> at the beginning of the semester and keep it updated as and when there is any change or results are declared (within two days). If data is not updated on placement website within two days, then TPO will not be responsible and won’t be able to send candidate’s/ student’s name for placement process.
+                </li>
+            </ol>
+        </li>
+
+    </br>
+
+        <li> <b>
+            Regarding company Grading: </b>
+            <ol type="I">
+                <li><b>Grade A</b>: CTC above 8 LPA (CTC &gt;= 8 LPA)</li>
+                <li><b>Grade B</b>: CTC in the range 6 LPA to 8 LPA (6 LPA &lt;= CTC &lt; 8 LPA)</li>
+                <li><b>Grade C</b>: CTC in the range 4 LPA to 6 LPA (4 LPA &lt;= CTC &lt; 6 LPA)</li>
+                <li><b>Grade D</b>: CTC below 4 LPA (CTC &lt; 4 LPA)</li>
+            </ol>
+        </br>
+            <i> <b>important:</b> Student, who already has been selected in a particular grade company, will not be allowed to attend the campus placement for any other company of same or lower grade. However, a student who is selected in a lower grade company will be allowed to attend the campus placement for the company of higher grade.</i></li>
+        </br>  <li><b>Penalty Rules:</b><br> Student who has expressed willingness to appear for campus placement through the visit created, if quits the procedure in between or does not accept the offer after selection, will be permanently debarred from further placements and will not be given any opportunity under any circumstances. Further disciplinary actions will be taken against him/her. </li>
+    </ol>
+</div>
+<!--Footer-->
+
+
+<footer class="bg-dark text-center text-lg-start text-white">
+  <!-- Grid container -->
+  <div class="container-right">
+    <!--Grid row-->
+ 
+      <!--Grid column-->
+    <div class="container-two-side"> 
+      
+       
+        <div class="left-column">
+          <p style="font-size: 20px;">
+          Government polytechnic For Girls Navragpura,Ahmedabad,India
+          </p>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      
+       
+        <p style="font-size: 20px;">
+          Maintained By:- Computer Department
+        </p>
+        
+  
+    </div>
+
+    <!--Grid row-->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-white" href="https://gpgplacement.com/">gpgplacement.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+  
+
+   
+ 
+
+
+
+  
+ 
+  <script src="{% static 'js/javascript.js' %}" type="text/javascript">
+  </script>
+  
+
+ 
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

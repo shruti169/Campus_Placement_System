@@ -1,0 +1,558 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+ <link href="{% static 'css/student_edit1.css' %}" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <!--navbar-->  
+<div class="container-fluid px-0">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" style="font-size: 30px;" href="#"> <img src="{% static 'logo.jpeg' %}" alt="img" width="30px" height="30px"> <h1 >Gpg Placement</h1></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'profile' student_id=student_data.eno %}">Profile</a>
+          </li>
+          {% if request.session.role == 'student' %}
+          <li class="nav-item">
+            <a class="nav-link" href="/listjob">New Vacancy</a>
+          </li>
+          {% endif %}
+          <li class="nav-item">
+            <a class="nav-link" href="/applied_jobs" id="job-application-submit-btn">Applied Vacancy</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'slogout' %}">Logout</a>
+          </li>
+
+
+
+      </div>
+    </div>
+  </nav>
+</div>
+<br><br><br>
+{% if update_message %}
+    <div class="alert alert-success">
+        {{ update_message }}
+    </div>
+{% endif %}
+
+<form action="{% url 'student_edit'  %}" method="post" enctype="multipart/form-data" autocomplete="off"  id="form">
+  {% csrf_token %} 
+<!--displaying data-->
+                  <div class="heading">
+                    <div class="title">Personal Details</div>
+                  </div>  
+           
+                    <div class="outer-container">
+                        <div class="form-group row">
+                            <label for="Eno" class="col-sm-2 col-form-label">Enrollment No:</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputPassword" value="{{student_data.eno}}" disabled>
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label for="fname" class="col-sm-2 col-form-label">First Name</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputPassword" name="fname" value="{{student_data.fname}}">
+                            </div>
+                          </div>
+                          <br>
+                          <div class="form-group row">
+                            <label for="lname" class="col-sm-2 col-form-label">Last Name</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputPassword" name="lname" value="{{student_data.lname}}">
+                            </div>
+                          </div>
+                          <br>
+                          <div class="form-group row">
+                            <label for="Email" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputPassword" name="email" value="{{student_data.email}}" disabled>
+                            </div>
+                          </div>
+                          <br>
+                          <div class="form-group row">
+                            <label for="10" class="col-sm-2 col-form-label">10th Board-Medium</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputPassword" name="bordname_10" value="{{student_data.bordname_10}}">
+                            </div>
+                          </div>
+                          <br>
+                          <div class="form-group row">
+                            <label for="10" class="col-sm-2 col-form-label">Percentage of 10th</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputPassword" name="percent_10" value="{{student_data.percent_10}}">
+                            </div>
+                          </div>
+                          <br>
+                          <div class="form-group row">
+                            <label for="10" class="col-sm-2 col-form-label">10th Passing Year</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputPassword" name="passyear_10" value="{{student_data.passyear_10}}">
+                            </div>
+                          </div>
+                          <br>
+                          <div class="form-group row">
+                            <label for="10" class="col-sm-2 col-form-label">12th Board-Medium</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputPassword" name="bordname_12" value="{{student_data.bordname_12}}">
+                            </div>
+                          </div> <br>
+                          <div class="form-group row">
+                            <label for="10" class="col-sm-2 col-form-label">Percentage of 12th</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputPassword" name="percent_12" value="{{student_data.percent_12}}">
+                            </div>
+                          </div>
+                          <br>
+                          <div class="form-group row">
+                            <label for="10" class="col-sm-2 col-form-label">12th Passing Year</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputPassword" name="passyear_12" value="{{student_data.passyear_12}}">
+                            </div>
+                          </div>
+                          <br>
+                          
+                          <br>
+                          <div class="form-group row">
+                            <label for="dob" class="col-sm-2 col-form-label">Birthdate</label>
+                            <div class="col-sm-10">
+                              <input type="date" class="form-control" id="inputPassword" name="dob" value="{{ student_data.dob|date:'Y-m-d' }}">
+
+                            </div>
+                          </div>
+                          <br>
+                          <div class="form-group row">
+                            <label for="branch" class="col-sm-2 col-form-label">Branch</label>
+                          <div class="col-sm-10">          
+                            <select class="form-select" id="branch" name="branch">
+                              <option value="" {% if not student_data2.branch %}selected{% endif %}>Select Branch</option>
+                              <option value="Architecture" {% if student_data2.branch == 'Architecture' %}selected{% endif %}>Architecture Assistantship</option>
+                              <option value="biomedical" {% if student_data2.branch == 'biomedical' %}selected{% endif %}>Biomedical Engineering</option>
+                              <option value="cddm" {% if student_data2.branch == 'cddm' %}selected{% endif %}>Computer Aided Costume Design & Dress Making (CDDM)</option>
+                              <option value="CE" {% if student_data2.branch == 'CE' %}selected{% endif %}>Computer Engineering (CE)</option>
+                              <option value="cvil" {% if student_data2.branch == 'cvil' %}selected{% endif %}>Cvil Engineering</option>
+                              <option value="ec" {% if student_data2.branch == 'ec' %}selected{% endif %}>Electronics & Communication Engineering (EC)</option>
+                              <option value="IT" {% if student_data2.branch == 'IT' %}selected{% endif %}>Information Technology (IT)</option>
+                              <!-- Add more options for different branches -->
+                            </select>
+                            </div>
+                          </div>
+                          
+                          <br>
+                          <div class="form-group row">
+                            <label for="mobile" class="col-sm-2 col-form-label">Interested in placement:</label>
+                            <div class="col-sm-10">
+                                <input type="radio"  id="pursuing"  name="interest" value="yes" {% if  student_data.interest == 'yes' %}checked{% endif %}>yes  
+                                <input type="radio"  id="completed" name="interest"  value="no"  {% if student_data.interest == 'no' %}checked{% endif %}>no 
+                          </div>
+                          </div>
+                          <br>
+
+                          <div class="form-group row">
+                            <label for="mobile" class="col-sm-2 col-form-label">Qualification:</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputPassword" name="qualification" value="Diploma" disabled="disabled">
+                            </div>
+                          </div>
+                          <br>
+
+                          <div class="form-group row">
+                            <label for="mobile" class="col-sm-2 col-form-label">Diploma Status:</label>
+                            <div class="col-sm-10">
+                                <input type="radio"  id="pursuing"  name="status" value="pursuing" {% if  student_data.status == 'pursuing' %}checked{% endif %}>Pursuing
+                                <input type="radio"  id="completed" name="status"  value="completed"  {% if student_data.status == 'completed' %}checked{% endif %}>Completed   
+                          </div>
+                          </div>
+                          <br>
+                          <div class="form-group row">
+                            <label for="start" class="col-sm-2 col-form-label">Start Year</label>
+                            <div class="col-sm-10">
+                          <select class="form-select" aria-label="Default select example" name="start_year" id="start-year-select" >
+                           
+                            <option value="{{ student_data.start_year}}" >{{ student_data.start_year}}</option>
+                           
+                            <!-- JavaScript loop to generate the options -->
+                            <script>
+                              var startYear = 1900; // Start year
+                              var endYear = 2099; // End year
+                              var select = document.getElementById('start-year-select'); // Select the <select> element
+                          
+                              // Generate the options
+                              for (var year = startYear; year <= endYear; year++) {
+                                var option = document.createElement('option'); // Create <option> element
+                                option.value = year; // Set the value to the year
+                                option.text = year; // Set the displayed text to the year
+                                select.appendChild(option); // Add the option to the <select> element
+                              }
+                            </script>
+                          </select>
+                          </div></div>
+                          <br>
+
+                          <div class="form-group row">
+                            <label for="start" class="col-sm-2 col-form-label">End Year</label>
+                            <div class="col-sm-10">
+                          <select class="form-select" aria-label="Default select example" name="end_year" id="end-year-select">
+                           
+                            <option value="{{ student_data.end_year}}" >{{ student_data.end_year}}</option>
+                           
+                            <!-- JavaScript loop to generate the options -->
+                            <script>
+                              var startYear = 1900; // Start year
+                              var endYear = 2099; // End year
+                              var select = document.getElementById('end-year-select'); // Select the specific <select> element by its ID
+                          
+                              // Generate the options
+                              for (var year = startYear; year <= endYear; year++) {
+                                  var option = document.createElement('option');
+                                  option.value = year;
+                                  option.text = year;
+                                  select.appendChild(option);
+                              }
+                          </script>
+                          </select>
+                          </div></div>
+                          <br>
+
+
+                  <div class="autocomplete" style="width:100%;">
+                  <div class="form-group row">
+                    <label for="mobile" class="col-sm-2 col-form-label">city</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="city" name="location" name="location" value="{{student_data.location}}">
+                    </div>
+                  </div>
+                </div>
+                <br>
+                   
+                    
+
+                    <script src="{% static 'js/javascript.js' %}" type="text/javascript">
+                    </script>
+
+                    <div class="form-group row">
+                      <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+                      <div class="col-sm-10">             
+                          <select class="form-select" aria-label="Default select example"    id="gender" disabled>
+                              <option  value="" {% if not student_data.gender %}selected{% endif %}>Select Gender</option>
+                              <option  value="male" {% if student_data.gender == 'male' %}selected{% endif %}>Male</option>
+                              <option  value="female" {% if student_data.gender == 'female' %}selected{% endif %}>Female</option>
+                              <option  value="not_specified" {% if student_data.gender == 'not_specified' %}selected{% endif %}>Not Specified</option>
+                          </select>
+                      </div>
+                  </div>
+                  
+
+                    <br>
+                    <div class="input-controls">
+                        <div class="form-group row">
+                            <label for="mobile" class="col-sm-2 col-form-label">Profile Picture</label>
+                            <div class="col-sm-10">
+                                <img src="{{ student_data.image.url }}" width="120px" height="120px" alt="image" id="current-image">
+                                <p>
+                                    <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;">
+                                </p>
+                                <p>
+                                    <label for="file" style="cursor: pointer;">Change Image</label>
+                                </p>
+                                <p>
+                                    <img id="output" width="200" />
+                                </p>
+                    
+                                <script>
+                                    var loadFile = function(event) {
+                                        var image = document.getElementById('output');
+                                        var currentImage = document.getElementById('current-image');
+                                        
+                                        // Hide the current image
+                                        currentImage.style.display = 'none';
+                                        
+                                        // Display the newly selected image
+                                        image.style.display = 'block';
+                                        image.src = URL.createObjectURL(event.target.files[0]);
+                                    };
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    
+                          <div class="form-group row">
+                            <label for="mobile" class="col-sm-2 col-form-label">Mobile:</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputPassword" name="moblie" value="{{student_data.mobile}}">
+                            </div>
+                          </div>
+<br>
+                     
+
+                       
+                          <div class="form-group row">
+                            <label for="mobile" class="col-sm-2 col-form-label">Place Any Company?:</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputPassword"  value="{{my_data3.placed_company}}" >
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label for="mobile" class="col-sm-2 col-form-label">Comapny Name</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputPassword"  value="{{my_data3.company}}" >
+                            </div>
+                          </div>
+                          
+                          <div class="form-group row">
+                            <label for="mobile" class="col-sm-2 col-form-label">Doing Btech?</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputPassword"  value="{{my_data3.btech}}" >
+                            </div>
+                          </div>
+
+                </div>   <div class="heading1">
+
+                        <div class="title">Semeter Details</div>
+                        </div>
+<div class="outer-container1">
+                        <label for="myMultiselect" style="font-weight: 500;">Backlog in Any Sem?</label>
+                        <div id="myMultiselect" class="multiselect">
+                          <div id="mySelectLabel" class="selectBox" onclick="toggleCheckboxArea()">
+                            <select class="form-select">
+                              <option value="0">somevalue</option>
+                            </select>
+                            <div class="overSelect"></div>
+                          </div>
+                          <div id="mySelectOptions">
+                            <label for="one"><input type="checkbox" id="one" onchange="checkboxStatusChange()" value="1" name="block" />1 Semeter</label>
+                            <label for="two"><input type="checkbox" id="two" onchange="checkboxStatusChange()" value="1" name="block" />2 Semeter</label>
+                            <label for="three"><input type="checkbox" id="three" onchange="checkboxStatusChange()" value="" name="block"/>3 Semeter</label>
+                            <label for="four"><input type="checkbox" id="four" onchange="checkboxStatusChange()" value="1" name="block"/>4 Semeter</label>
+                            <label for="five"><input type="checkbox" id="five" onchange="checkboxStatusChange()" value="1" name="block" />5 Semeter</label>
+                            <label for="six"><input type="checkbox" id="six" onchange="checkboxStatusChange()" value="1" name="block" />6 Semeter</label>
+                            
+                          </div>
+                        </div>
+                     
+                    
+                   
+    
+                        <script>
+                        window.onload = (event) => {
+                            initMultiselect();
+                          };
+                          
+                          function initMultiselect() {
+                            checkboxStatusChange();
+                          
+                            document.addEventListener("click", function(evt) {
+                              var flyoutElement = document.getElementById('myMultiselect'),
+                                targetElement = evt.target; // clicked element
+                          
+                              do {
+                                if (targetElement == flyoutElement) {
+                                  // This is a click inside. Do nothing, just return.
+                                  //console.log('click inside');
+                                  return;
+                                }
+                          
+                                // Go up the DOM
+                                targetElement = targetElement.parentNode;
+                              } while (targetElement);
+                          
+                              // This is a click outside.
+                              toggleCheckboxArea(true);
+                              //console.log('click outside');
+                            });
+                          }
+                          
+                          function checkboxStatusChange() {
+                            var multiselect = document.getElementById("mySelectLabel");
+                            var multiselectOption = multiselect.getElementsByTagName('option')[0];
+                          
+                            var values = [];
+                            var checkboxes = document.getElementById("mySelectOptions");
+                            var checkedCheckboxes = checkboxes.querySelectorAll('input[type=checkbox]:checked');
+                          
+                            for (const item of checkedCheckboxes) {
+                              var checkboxValue = item.getAttribute('value');
+                              values.push(checkboxValue);
+                            }
+                          
+                            var dropdownValue = "{{student_data1.total_block}}";
+                            if (values.length > 0) {
+                              dropdownValue = values.join(', ');
+                            }
+                          
+                            multiselectOption.innerText = dropdownValue;
+                          }
+                          
+                          function toggleCheckboxArea(onlyHide = false) {
+                            var checkboxes = document.getElementById("mySelectOptions");
+                            var displayValue = checkboxes.style.display;
+                          
+                            if (displayValue != "block") {
+                              if (onlyHide == false) {
+                                checkboxes.style.display = "block";
+                              }
+                            } else {
+                              checkboxes.style.display = "none";
+                            }
+                          }
+                          
+                        </script>
+                        <br>
+                     <div class="division">
+                        <div class="input-box">
+                               <span class="details">Overall CPI:</span>
+                               <input type="text"  name="cpi" id="cpi" value="{{student_data1.cpi}}">
+                          
+                        </div>
+                        
+                        <div class="input-box">
+                               <span class="details">CGPA</span>
+                               <input type="text"  name="cgpa" id="cgpa" value="{{student_data1.cgpa}}">
+                         
+                        </div> 
+                     </div>
+                        <div class="division">
+                     
+                           <div class="input-box">    
+                               <span class="details">1st CPI:</span>
+                               <input type="text"  name="spi1" id="first" value="{{student_data1.spi1}}">
+                         
+                           </div>       
+                           <div class="input-box"> 
+                               <span class="details">2nd CPI:</span>
+                               <input type="text"  name="spi2" id="second" value="{{student_data1.spi2}}">
+                     
+                           </div>
+                     </div>
+                    
+                        <div class="division">
+    
+                           <div class="input-box">            
+                               <span class="details">3rd CPI:</span>
+                               <input type="text"  name="spi3" id="thrid" value="{{student_data1.spi3}}">
+                          
+                           </div>
+                               
+                               <div class="input-box"> 
+                               <span class="details">4th CPI:</span>
+                               <input type="text"  name="spi4" id="forth" value="{{student_data1.spi4}}">
+                          
+                               </div>
+                        </div>  
+                    
+                        <div class="division">
+                               
+                               <div class="input-box"> 
+                               <span class="details">5th CPI:</span>
+                               <input type="text"  name="spi5" id="fifth" value="{{student_data1.spi5}}">
+                              
+                               </div>
+    
+                               <div class="input-box"> 
+                               <span class="details">6th CPI:</span>
+                               <input type="text"  name="spi6" id="sixth" value="{{student_data1.spi6}}">
+                               
+                               </div>
+                    </div>
+                    
+  
+                        
+
+</div>  
+<center>
+<input type="submit" value="Save & Next" class="submit"></center>        </form>   
+
+
+
+
+
+<!--login form-->
+
+  
+<!--Footer-->
+
+<footer class="bg-dark text-center text-lg-start text-white">
+  <!-- Grid container -->
+  <div class="container-right">
+    <!--Grid row-->
+ 
+      <!--Grid column-->
+    <div class="container-two-side"> 
+      
+       
+        <div class="left-column">
+          <p style="font-size: 20px;">
+          Government polytechnic For Girls Navragpura,Ahmedabad,India
+          </p>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      
+       
+        <p style="font-size: 20px;">
+          Maintained By:- Computer Department
+        </p>
+        
+  
+    </div>
+
+    <!--Grid row-->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-white" href="https://gpgplacement.com/">gpgplacement.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+  
+
+   
+ 
+
+
+
+  
+ 
+  <script src="{% static 'js/javascript.js' %}" type="text/javascript">
+  </script>
+  
+
+ 
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

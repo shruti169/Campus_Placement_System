@@ -1,0 +1,370 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+ <link href="{% static 'css/student_details.css' %}" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <!--navbar-->
+  
+<div class="container-fluid px-0">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" style="font-size: 30px;" href="#"> <img src="{% static 'logo.jpeg' %}" alt="img" width="30px" height="30px"> <h1 >Gpg Placement</h1></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+       
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+
+          
+
+         
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<br><br><br>
+
+{% if success_message %}
+<div class="alert alert-success">{{ success_message }}</div>
+{% endif %}
+
+{% if error_message %}
+    <div class="alert alert-danger">{{ error_message }}</div>
+{% endif %}
+
+
+
+
+<!--displaying data-->
+                  <div class="heading">
+                    <center>
+                    <div class="title">Personal Details</div></center>
+                
+                  </div>      
+                      <div class="layout">
+                        <table class="styled-table">
+                          <tr>
+                            <td>Photo</td>
+                            <td><img src="{{ student_data.image.url }}" width="120px" height="120px" alt="image"/></td>
+                          </tr>
+                          
+                          <tr>
+                            <td>Enrollment Number</td>
+                            <td>{{student_data.eno_id}}</td>
+                          </tr>
+
+
+                          <tr>
+                            <td>First Name</td>
+                            <td>{{student_data.fname}}</td>
+                          </tr>
+                          
+                          <tr>
+                            <td>Last Name</td>
+                            <td>{{student_data.lname}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>Email</td>
+                            <td>{{student_data2.email}}</td>
+                          </tr>
+                          
+                          <tr>
+                            <td>10th Board Name:</td>
+                            <td>{{student_data.bordname_10}}</td>
+                          </tr>
+                          
+                          <tr>
+                            <td>Percentage of 10th:</td>
+                            <td>{{student_data.percent_10}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>10th Passing Year:</td>
+                            <td>{{student_data.passyear_10}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>12th Board Name:</td>
+                            <td>{{student_data.bordname_12}}</td>
+                          </tr>
+
+
+                          <tr>
+                            <td>Percentage of 12th:</td>
+                            <td>{{student_data.percent_12}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>12th Passing Year:</td>
+                            <td>{{student_data.passyear_12}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>Birthdate</td>
+                            <td>{{student_data.dob}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>Branch</td>
+                            <td>{{student_data2.branch}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>Gender</td>
+                            <td>{{student_data.gender}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>Qualification</td>
+                            <td>{{student_data.qualification}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>Diploma Status</td>
+                            <td>{{student_data.status}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>Starting Year</td>
+                            <td>{{student_data.start_year}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>Ending Year</td>
+                            <td>{{student_data.end_year}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>Interested in Placement?</td>
+                            <td>{{student_data.interest}}</td>
+                          </tr>
+
+
+                        </table>  
+                      </div>  
+
+                      <div class="heading1">
+<center>
+                        <div class="title">Semeter Details</div></center>
+                        </div>
+                        
+                        
+                        <table class="styled-table">
+                          
+
+
+                          <tr>
+                            <td>CPI</td>
+                            <td>{{student_data1.cpi}}</td>
+                          </tr>
+                          
+                          <tr>
+                            <td>CGPA</td>
+                            <td>{{student_data1.cgpa}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>Total block?</td>
+                            <td>{{student_data1.total_block}}</td>
+                          </tr>
+                          
+                          
+                          
+                          
+                          
+                          
+
+                          <tr>
+                            <td>1st sem SPI:</td>
+                            <td>{{student_data1.spi1}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>2nd sem SPI:</td>
+                            <td>{{student_data1.spi2}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>3rd sem SPI:</td>
+                            <td>{{student_data1.spi3}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>4th sem SPI:</td>
+                            <td>{{student_data1.spi4}}</td>
+                          </tr>
+                          <tr>
+                            <td>5th sem SPI:</td>
+                            <td>{{student_data1.spi5}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>6th sem SPI:</td>
+                            <td>{{student_data1.spi6}}</td>
+                          </tr>
+                        </table> 
+
+
+<center>
+                        <input type="submit" class="submit" value="Call For Interview" data-toggle="modal" data-target="#exampleModalCenter">   
+                           <a href="/applied"><input type="submit" class="submit" value="back" ></a>
+
+                      </center>
+
+                      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLongTitle">Send mail for Interview</h5>
+                              
+                            </div>
+
+
+                            <form id="emailForm" method="POST" action="{% url 'send_interview_email' %}">
+                              {% csrf_token %}
+                              <input type="hidden" name="student_eno" value="{{student_data.eno_id}}">
+                            <div class="modal-body">
+                              <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">To</label>
+                                <input type="email" class="form-control" id="toEmail" name="" value="{{ student_data2.email }}" disabled>
+                                <input type="hidden" name="email" value="{{ student_data2.email }}">
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="toEmail" name="subject" value="Invitation to Interview - [Position/Program] at [Institution/Organization]">
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Body:</label>
+                                <textarea class="form-control" id="emailBody" rows="5" name="emailBody">
+Dear [Student's Name],
+
+      I hope this email finds you well. I am writing to invite you for an interview for the [Position/Program] at [Institution/Organization]. We were impressed by your application and believe that you possess the skills and qualifications necessary to excel in this role.
+
+      The interview will provide us with an opportunity to further assess your suitability for the position/program and to learn more about your experiences, interests, and aspirations. We are excited to discuss your potential contribution to our [Institution/Organization] and address any questions you may have about the position/program.
+
+      Below are the details for the interview:
+
+Date: [Date]
+Time: [Time]
+Location: [Location/Online - provide instructions if it's an online interview]
+Duration: Approximately [Duration]
+
+      During the interview, you can expect a panel of [number] interviewers who will ask questions related to your qualifications and experiences. We encourage you to come prepared to discuss your achievements, skills, and future goals.
+
+      Please confirm your availability for the interview by [deadline]. If you are unable to attend at the scheduled time, please let us know as soon as possible, and we will do our best to accommodate an alternative time slot.
+
+      If you require any specific accommodations for the interview due to disabilities or other needs, please inform us in advance, and we will make every effort to provide the necessary arrangements.
+
+      We look forward to meeting you and further exploring your potential as a valuable member of our team/program. Should you have any questions or need any further information, please feel free to reach out to [Contact Person] at [Contact Email/Phone Number].
+
+      Once again, congratulations on being selected for an interview. We wish you the best of luck, and we hope to see you soon.
+
+      Sincerely,
+
+[Your Name]
+[Your Position]
+[Institution/Organization]
+                                </textarea>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btns" id="cancel" data-dismiss="modal">Cancel</button>
+                                <button type="submit" id="send-btn" class="send">Send</button>
+                              </div>
+                            </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      
+                      
+
+                      
+
+  
+<!--Footer-->
+
+
+				
+<footer class="bg-dark text-center text-lg-start text-white">
+  <!-- Grid container -->
+  <div class="container-right">
+    <!--Grid row-->
+ 
+      <!--Grid column-->
+    <div class="container-two-side"> 
+      
+       
+        <div class="left-column">
+          <p style="font-size: 20px;">
+          Government polytechnic For Girls Navragpura,Ahmedabad,India
+          </p>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      
+       
+        <p style="font-size: 20px;">
+          Maintained By:- Computer Department
+        </p>
+        
+  
+    </div>
+
+    <!--Grid row-->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-white" href="https://gpgplacement.com/">gpgplacement.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+  
+
+   
+ 
+
+
+
+  
+ 
+  <script src="{% static 'js/javascript.js' %}" type="text/javascript">
+  </script>
+  
+
+ 
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

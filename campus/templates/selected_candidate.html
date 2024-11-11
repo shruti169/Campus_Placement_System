@@ -1,0 +1,153 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+ <link href="{% static 'css/applied.css' %}" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <!--navbar-->
+  
+<div class="container-fluid px-0">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" style="font-size: 30px;" href="#"> <img src="{% static 'logo.jpeg' %}" alt="img" width="30px" height="30px"> <h1 >Gpg Placement</h1></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          {% if request.session.role == 'company'  %}
+          <li class="nav-item">
+            <a class="nav-link" href="/companydash">Dashboard</a>
+          </li>
+        
+          <li class="nav-item">
+            <a class="nav-link" href="/applied">Applied Students</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/companypost">Posted Vaccancy & Lectures</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/selected_candidate">Selected Student</a>
+          </li>
+          {% endif %}
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+
+  <!--display jobs-->
+
+  <div class="outer-container">
+    <h2>No of students are selected..</h2>
+
+  <table class="customTable">
+    <thead>
+       
+      <tr>
+        <th>Student Enrollment No</th>
+        <th>Student Email id</th>
+        <th>Branch</th>
+        <th>Company Email id</th>
+        <th>Organization Name</th>
+        <th>Field Name</th>
+        <th>salary</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for student in selected_students %}
+      <tr>
+        <td>{{student.eno}}</td>
+        <td>{{student.eno.email}}</td>
+        <td>{{student.eno.branch}}</td>
+        <td>{{student.email_id_id}}</td>
+        <td>{{student.email_id.organization}}</td>
+        <td>{{student.profile_name}}</td>
+        <td>{{student.salary}}</td>
+        
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>
+</div>
+
+<br><br><br>
+  <!--Footer-->
+
+				
+  <footer class="bg-dark text-center text-lg-start text-white">
+    <!-- Grid container -->
+    <div class="container-right">
+      <!--Grid row-->
+   
+        <!--Grid column-->
+      <div class="container-two-side"> 
+        
+         
+          <div class="left-column">
+            <p style="font-size: 20px;">
+            Government polytechnic For Girls Navragpura,Ahmedabad,India
+            </p>
+        </div>
+        <!--Grid column-->
+  
+        <!--Grid column-->
+        
+         
+          <p style="font-size: 20px;">
+            Maintained By:- Computer Department
+          </p>
+          
+    
+      </div>
+  
+      <!--Grid row-->
+    </div>
+    <!-- Grid container -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2020 Copyright:
+      <a class="text-white" href="https://gpgplacement.com/">gpgplacement.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+   
+ 
+
+
+
+  
+ 
+  <script src="{% static 'js/javascript.js' %}" type="text/javascript">
+  </script>
+  
+
+ 
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

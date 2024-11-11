@@ -1,0 +1,330 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> mainreg | CodingLab </title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/mainregistration1.css' %}">
+     
+     <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+  <!--navbar-->
+  <div class="container-fluid px-0">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" style="font-size: 30px;" href="#"> <img src="{% static 'logo.jpeg' %}" alt="img" width="30px" height="30px"> <h1 >Gpg Placement</h1></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/home">Home</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/rules">Rules</a>
+            </li>
+  
+        </div>
+      </div>
+    </nav>
+  </div>
+<!--register page-->
+<!---->
+        <div class="layout">
+              <div class="container1">
+               <div class="heading">
+              <p>Personal Details</p>
+             
+              </div>    
+              <div class="register" id="border">
+                <div class="rows">
+                 <form action="{% url 'mainregistration' eno=eno email_id=email_id %}" method="post" enctype="multipart/form-data" autocomplete="off"  id="form">
+                  {% csrf_token %} 
+                  <div class="user-details">
+                    <label for="eno">Enrollment No:</label><br>
+                      <input type="text" name="eno_id" value="{{ eno }}" id="eno" disabled>
+                      <input type="hidden" name="eno_id" value="{{ eno }}">
+                    <div class="input-box">
+                    <div class="input-controls">
+                      <span class="details">First Name </span>
+                      <input type="text" placeholder="Enter your First Name" name="fname"  id="fname" >
+                      <br><br>
+                      <small>Error message</small>
+                    </div>
+                    </div>
+                    <div class="input-box">
+                      <div class="input-controls">
+                      <span class="details">Last Name</span>
+                      <input type="text" placeholder="Enter your Last name" name="lname"  id="lname" >
+                      <br><br>
+                      <small>Error message</small>
+                      </div>
+                      <br/>
+                    </div>   
+                </div>       
+
+                <div class="input-controls">
+                    <label for="Profile Picture">Profile Picture</label><br/>
+                    <input type="file"  accept="image/gif, image/jpeg, image/png" name="image" id="file" width="100px" onchange="loadFile(event)" style="display: none;">
+                    <p id="image"><label for="file" style="cursor: pointer;">Upload Image</label></p>
+                    <img id="output" width="200px" style="height:200px; display: none;"/>
+                    <br>
+                    <small>Error message</small>
+                </div>
+                <script>
+                  var loadFile = function(event) {
+                    var image = document.getElementById('output');
+                    image.src = URL.createObjectURL(event.target.files[0]);
+                    document.getElementById('image').style.display="none";
+                    document.getElementById('output').style.display="block";
+                  };
+                  </script>
+                  <div class="input-controls">
+                          <label for="email">Email:</label></br>
+                          <input type="email" id="email" name="email"  value="{{ email_id }}" disabled>
+                          <input type="hidden" name="email" value="{{ email_id }}">
+                          <br><br>
+                          <small>Error message</small>
+                  </div>      
+      
+                      <div class="input-controls">
+                          <label for="mobile">Mobile:</label>
+                           <input type="tel" id="mobile" name="mobile" placeholder="only 10 digits are allowed">
+                           <br><br><small>Error message</small>
+                        </div>
+                          
+
+                        <div class="input-controls">   
+                          <label for="gender" required>Gender:</label>
+                          <select name="gender" id="gender">
+                               <option name="gender" value="0">Gender</option>
+                               <option name="gender" value="male">Male</option>
+                               <option name="gender" value="female">Female</option>
+                               <option name="gender" value="not perfer">Not Perfer</option>
+                          </select>
+                          <br><br><small>Error message</small>
+                        </div>  
+                            
+
+                        <div class="input-controls">     
+                          <label for="dob">Date Of Birth:</label>
+                          <input type="Date" id="dob" name="dob">
+                          <small>Error message</small></br></br>
+                        </div>
+                        
+                    
+                         
+                   
+                      <div class="autocomplete" style="width:100%;">
+                        <div class="input-controls">      
+                          <label for="city" >Current Location:</label>
+                          <input type="text" id="city" name="location" placeholder="Current city" >
+                          <br><br><small>Error message</small>
+                      </div>
+                  </div>      
+                        
+
+                        <script src="{% static 'js/javascript.js' %}" type="text/javascript">
+                        </script>
+
+                        
+                        <div class="input-controls">    
+                          <label for="boardname">10th Board Name: </label>
+                          <input type="text" id="board10" name="bordname_10">
+                          <small>Error message</small></br></br>
+                        </div>
+                        
+                        <div class="input-controls">
+                          <label for="percentge">Percentage of 10th:</label>
+                          <input type="text" id="percentge10" name="percent_10">
+                          <small>Error message</small></br></br>
+                        </div>
+                        
+                        <div class="input-controls">
+                          <label for="passing">10th Passing Year:</label>
+                          <input type="text" id="passing10" name="passyear_10">
+                          <small>Error message</small></br></br>
+                        </div>  
+                        <div class="input-controls">
+                          <label for="12boardname">12th Board Name: </label>
+                          <input type="text" id="board12" name=" bordname_12">
+                          <small>Error message</small></br></br>
+                         </div>
+                         
+                         <div class="input-controls">
+                          <label for="12percentge">Percentage of 12th:</label>
+                          <input type="text" id="percentge12" name="percent_12">
+                          <small>Error message</small></br></br>
+                        </div>
+                        
+                        <div class="input-controls">
+                          <label for="passing">12th Passing Year:</label>
+                          <input type="text" id="passing12" name="passyear_12">
+                          <small>Error message</small></br></br>
+                        </div>  
+                          <div class="input-controls">
+                            <label for="qualification">Qualification:</label>
+                          <input type="text" id="qualification" name="qualification" value="Diploma" disabled="disabled">
+                          <small>Error message</small></br></br>
+                        </div>
+                              
+                        <div class="input-controls">  
+                          <label for="Diploma" id="status" >Diploma Status:</label>
+                          <div class="status">
+                          <input type="radio"  id="pursuing"  name="status" value="pursuing">Pursuing
+                          <input type="radio"  id="completed" name="status"  value="completed">Completed
+                          <br><br><small>Error message</small>
+                      </div>    
+                  </div>
+                      <br/>
+
+                        <div class="user-details"> 
+                          <div class="year">
+                            <div class="input-controls">     
+                          <label for="year">Start Year</label>
+                          <select name="start_year" id="syear">
+                            <option name="start_year" value="0">Choose Year</option>
+                            <script>
+                              var startYear = 2000; // Start year
+                              var endYear = 2099; // End year
+                              var select = document.getElementById('syear'); // Select the <select> element
+                          
+                              // Generate the options
+                              for (var year = startYear; year <= endYear; year++) {
+                                var option = document.createElement('option'); // Create <option> element
+                                option.value = year; // Set the value to the year
+                                option.text = year; // Set the displayed text to the year
+                                select.appendChild(option); // Add the option to the <select> element
+                              }
+                            </script>
+                          </select> 
+                         <br><br> <small>Error message</small> 
+                        </div>  
+                        </div> 
+                
+                        <div class="year">
+                        <div class="input-controls">  
+                          <label for="year">End Year</label>
+                          <select name="end_year" id="eyear">
+                            <option name="end_year" value="0">Choose Year</option>
+                            <script>
+                              var startYear = 2000; // Start year
+                              var endYear = 2099; // End year
+                              var select = document.getElementById('eyear'); // Select the specific <select> element by its ID
+                          
+                              // Generate the options
+                              for (var year = startYear; year <= endYear; year++) {
+                                  var option = document.createElement('option');
+                                  option.value = year;
+                                  option.text = year;
+                                  select.appendChild(option);
+                              }
+                          </script>
+                          </select> 
+                         <br><br> <small>Error message</small>
+                        </div>  
+                        </div>
+                      </div>
+<br/>
+              <div class="input-controls">
+                          <label for="interested" id="intereset">Interested in Placements?</label></br>
+                          <input type="radio"  id="yes"  name="interest" value="yes">YES
+                          <input type="radio"  id="no" name="interest" value="no">NO
+                         <br> <small>Error message</small><br/>
+               </div>           
+                          <input type="submit" value="Save & Next">
+                  </div>      
+                          
+                 
+              </div>
+              
+            </form>
+          </div>
+        </div>  
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+        <!---Custom File Link--->
+       
+               
+
+
+            
+            
+
+<!--footer-->
+<footer class="bg-dark text-center text-lg-start text-white">
+  <!-- Grid container -->
+  <div class="container-right">
+    <!--Grid row-->
+ 
+      <!--Grid column-->
+    <div class="container-two-side"> 
+      
+       
+        <div class="left-column">
+          <p style="font-size: 20px;">
+          Government polytechnic For Girls Navragpura,Ahmedabad,India
+          </p>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      
+       
+        <p style="font-size: 20px;">
+          Maintained By:- Computer Department
+        </p>
+        
+  
+    </div>
+
+    <!--Grid row-->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-white" href="https://gpgplacement.com/">gpgplacement.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+{% load static %}
+<html lang="en">
+
+<body>
+    <!--navbar-->
+
+<!--displaying data-->
+                  <div class="heading">
+                    <div class="title">Personal Details</div>
+                  </div>      
+                      <div class="layout">
+<input type="hidden" name="enrollmemt" value="{{student_data.eno}}">
+                        <table class="styled-table">
+                          <tr>
+                            <td>Photo</td>
+                            <td><img src="{{ student_data.image.url }}" width="120px" height="120px" alt="image"/></td>
+                          </tr>
+                          
+                          <tr>
+                            <td>Enrollment Number</td>
+                            <td>{{student_data.eno}}</td>
+                          </tr>
+
+
+                          <tr>
+                            <td>First Name</td>
+                            <td>{{student_data.fname}}</td>
+                          </tr>
+                          
+                          <tr>
+                            <td>Last Name</td>
+                            <td>{{student_data.lname}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>Email</td>
+                            <td>{{student_data2.email}}</td>
+                          </tr>
+                          
+                          <tr>
+                            <td>10th Board Name:</td>
+                            <td>{{student_data.bordname_10}}</td>
+                          </tr>
+                          
+                          <tr>
+                            <td>Percentage of 10th:</td>
+                            <td>{{student_data.percent_10}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>10th Passing Year:</td>
+                            <td>{{student_data.passyear_10}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>12th Board Name:</td>
+                            <td>{{student_data.bordname_12}}</td>
+                          </tr>
+
+
+                          <tr>
+                            <td>Percentage of 12th:</td>
+                            <td>{{student_data.percent_12}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>12th Passing Year:</td>
+                            <td>{{student_data.passyear_12}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>Birthdate</td>
+                            <td>{{student_data.dob}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>Branch</td>
+                            <td>{{student_data2.branch}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>Gender</td>
+                            <td>{{student_data.gender}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>Qualification</td>
+                            <td>{{student_data.qualification}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>Diploma Status</td>
+                            <td>{{student_data.status}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>Starting Year</td>
+                            <td>{{student_data.start_year}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>Ending Year</td>
+                            <td>{{student_data.end_year}}</td>
+                          </tr>
+                        
+                          <tr>
+                            <td>Place Any Company?</td>
+                            <td>{{student_data3.placed_company}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>Comapny Name</td>
+                            <td>{{student_data3.company}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>Doing Btech?</td>
+                            <td>{{student_data3.btech}}</td>
+                          </tr>
+
+                        </table>  
+                      </div>  
+
+                      <div class="heading1">
+
+                        <div class="title">Semeter Details</div>
+                        </div>
+                        
+                        
+                        <table class="styled-table">
+                          
+
+
+                          <tr>
+                            <td>CPI</td>
+                            <td>{{student_data1.cpi}}</td>
+                          </tr>
+                          
+                          <tr>
+                            <td>CGPA</td>
+                            <td>{{student_data1.cgpa}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>Total block?</td>
+                            <td>{{student_data1.total_block}}</td>
+                          </tr>
+                          
+                          
+                          
+                          
+                          
+                          
+
+                          <tr>
+                            <td>1st sem SPI:</td>
+                            <td>{{student_data1.spi1}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>2nd sem SPI:</td>
+                            <td>{{student_data1.spi2}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>3rd sem SPI:</td>
+                            <td>{{student_data1.spi3}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>4th sem SPI:</td>
+                            <td>{{student_data1.spi4}}</td>
+                          </tr>
+                          <tr>
+                            <td>5th sem SPI:</td>
+                            <td>{{student_data1.spi5}}</td>
+                          </tr>
+
+                          <tr>
+                            <td>6th sem SPI:</td>
+                            <td>{{student_data1.spi6}}</td>
+                          </tr>
+                        </table> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--login form-->
+
+
+</body>
+</html>

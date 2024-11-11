@@ -1,0 +1,12 @@
+1) download PostgreSQL software
+2) create database name campus
+3) download Django.
+	command: "pip install Django"
+3) run this command :
+   	"python manage.py makemigrations"
+	"python manage.py migrate"
+4) create super user to access admin panel.
+	"python manage.py createsuperuser"
+
+5) run peoject .
+	"python manage.py runserver"

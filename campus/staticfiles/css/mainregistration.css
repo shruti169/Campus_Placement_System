@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/*navbar*/
+:root{
+    --bs-body-font-family:'verdana',sans-serif;
+  }
+  .navbar a {
+    font-family: 'Times New Roman',sans-serif;
+    font-size: 20px;
+  }
+  .navbar-custom {
+    height: 100px;
+  }
+  .navbar-dark
+  {
+    --bs-navbar-active-color: rgb(228, 20, 20);
+    --bs-navbar-toggler-border-color: rgba(0, 0, 0, 0);
+  }
+  .nav-link{
+    color: #fff;
+  }
+
+
+  /*Brand Recuiter */
+  @import url(https://fonts.googleapis.com/css?family=Righteous);
+  
+  *, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+    }
+    body:before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 0;
+     
+      }
+  
+  h1 {
+    display: inline-block;
+    color: white;
+    font-family: 'Righteous', serif;
+    font-size: 30px; 
+    text-shadow: .03em .03em 0 rgb(211, 21, 21);
+    }
+    h1:after {
+      content: attr(data-shadow);
+      position: absolute;
+      top: .06em; left: .06em;
+      z-index: -1;
+      text-shadow: none;
+      background-image:
+        linear-gradient(
+          45deg,
+          transparent 45%,
+          hsla(48,20%,90%,1) 45%,
+          hsla(48,20%,90%,1) 55%,
+          transparent 0
+          );
+      background-size: .05em .05em;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    
+      animation: shad-anim 15s linear infinite;
+      }
+  
+  @keyframes shad-anim {
+    0% {background-position: 0 0}
+    0% {background-position: 100% -100%}
+    }
+
+
+/*register*/
+   
+.heading{
+  font-size: 300%;
+  font-weight: bold;
+  color: black;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  margin-top: 100px;
+}
+
+input[type=submit] {
+     background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    padding: 12px 20px;
+    border: none;
+    width: 10%;
+    margin-left: 920px;
+    margin-right: 400px;
+    margin-bottom: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+  
+}
+#image{
+  border: 1px dotted black;
+  padding: 30px;
+  text-align: center;
+}
+input[type=submit]:hover {
+background-color: #32a336;
+}
+input[type=email],input[type=tel],input[type=date],input[type=text] {
+    padding: 10px;
+    width: 100%;
+}
+.row .title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #34cc4a, #d0dd57d0);
+}
+.register{
+    border-radius: 5px;
+    border: 1px solid black;
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right:30px ;
+    padding-bottom: 10px;
+    margin: 10px 450px 10px 450px;
+   
+}
+#gender{
+  padding: 10px;
+  width: 100%;
+}
+.user-details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+ 
+}
+form .user-details .input-box{
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+}
+form .input-box span.details{
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.user-details .input-box input{
+  width: 250px;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 10px;
+  border: 1px solid rgb(0, 0, 0);
+  transition: all 0.3s ease;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+  border: 2px solid rgb(0, 0, 0);
+}
+#qualification{
+  padding: 10px;
+  width: 100%;
+}
+.status{
+    margin-top:20px;
+}
+
+.user-details .input-box select{
+    
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+  }
+  .user-details .input-box select:focus{
+  border-color: #3fd845;
+}
+
+.user-details .year select{
+    
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  height: 50px;
+  padding-left: 15px;
+  transition: all 0.3s ease;
+}
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: rgb(102, 103, 104) !important; 
+  color: #ffffff; 
+}
+
+@media screen and (max-width: 600px) {
+    .col-10,.col-90,input[type=submit]{
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+  /*footer*/
+
+#footer {
+    height: 100px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    display: flex;
+    
+ }
+  .copy{
+    text-align: left;
+    padding-top: 20px;  
+  }
+  .Maintain{  
+   text-align: right;
+  }
+
+
+  /*scroll*/
+ 
